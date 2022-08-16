@@ -1,6 +1,7 @@
 # WashU Digital Marketplace
 Sam Nordhus - snordhus<br>
-Asynchronous marketplace website where WashU students can sell items to other students
+Asynchronous marketplace website where WashU students can sell items to other students <br>
+CRUD Application: Create, Read, Update, Delete database entries
 ## Usage Instructions / Other Information:
 * Stack:
      * Angular13 frontend 
