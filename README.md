@@ -44,13 +44,9 @@ Sam Nordhus - 485897 - snordhus
 * Can log in as an admin to edit/delete all listings.  Admin has a 'delete-all' button at the bottom of the listings list
     *  username: admin
     *  password: admin_password
-<<<<<<< Updated upstream
 * Added working searchbar
-=======
-* Added working Searchbar
->>>>>>> Stashed changes
 * Users can also upload an image that's displayed as a thumbnail in the list and as a larger image when selected
-      * Added 'image' column to lisings table
+    * Added 'image' column to lisings table
 * Styling:
    * site is visually appealing
    * Buttons animated
