@@ -1,0 +1,154 @@
+<div *ngIf="viewMode; else editable"   class="sticky-top">
+    <div *ngIf="email!='none'">
+      <h3>Purchase Successful of Listing: {{lastPurchased}} </h3>
+      <strong>ACTION NEEDED: &nbsp;</strong> <a 
+      href = "mailto: {{email}}?subject=WashU%20Digital%20Marketplace%20{{lastPurchased}}%20Sold!&body=Please schedule a place and time to perform transaction">
+      Send Email</a> to the seller
+      <br>
+      <hr>
+      <br>
+    </div>
+    <div *ngIf="currentListing.id">
+      <div>
+        <h3> {{ currentListing.title }}</h3>
+        <h3> ${{ currentListing.price }}</h3>
+      </div>
+      <img src="{{ currentListing.image }}" />
+      <div>
+        <label><strong>Description:</strong></label>
+        {{ currentListing.description }}
+      </div>
+      <div>
+        <label><strong>Category:</strong></label>
+        {{ currentListing.category }}
+      </div>
+      <div>
+        <label><strong>Seller:</strong></label>
+        {{ currentListing.seller }}
+      </div>
+      <div>
+        <label><strong>Status:</strong></label>
+        {{ currentListing.purchased ? "Purchased" : "Available for Purchase" }}
+      </div>
+     <!-- if user is the seller, give edit button -->
+      <a
+        *ngIf="curUser==currentListing.seller || curUser=='admin'"
+        class="badge badge-warning"
+        routerLink="/listings/{{ currentListing.id }}"
+      >
+        Edit
+      </a>
+      <!-- else, give purchase button -->
+      <div *ngIf="curUser!=currentListing.seller && curUser!='none'">
+          <!-- <button
+          class="badge badge-primary mr-2"
+          *ngIf="currentListing.purchased"
+          (click)="updatePurchased(false)"
+        >
+          UnPurchase 
+        </button> -->
+        <button
+          *ngIf="!currentListing.purchased"
+          class="badge badge-primary mr-2"
+          (click)="updatePurchased(true)"
+        >
+          Purchase
+        </button>
+      </div>
+      
+
+      
+    </div>
+  
+    <div *ngIf="!currentListing">
+      <br />
+      <p>Please click on a Listing...</p>
+    </div>
+  </div>
+  
+  <ng-template #editable>
+    <div *ngIf="currentListing.id" class="edit-form">
+      <h4>Listing</h4>
+      <form>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            [(ngModel)]="currentListing.title"
+            name="title"
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            id="description"
+            [(ngModel)]="currentListing.description"
+            name="description"
+          />
+        </div>
+        <div class="form-group">
+          <label for="price">Price ($):</label>
+          <input
+            type="number"
+            class="form-control"
+            id="price"
+            [(ngModel)]="currentListing.price"
+            name="price"
+          />
+        </div>
+        <div class="form-group">
+          <label for="image">Image URL</label>
+          <input
+            type="text"
+            class="form-control"
+            id="image"
+            [(ngModel)]="currentListing.image"
+            name="image"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label><strong>Status:</strong></label>
+          {{ currentListing.purchased ? "Purchased" : "Available for Purchase" }}
+        </div>
+      </form>
+  
+      <button
+        class="badge badge-primary mr-2"
+        *ngIf="currentListing.purchased"
+        (click)="updatePurchased(false)"
+      >
+        Mark Unpurchased
+      </button>
+      <button
+        *ngIf="!currentListing.purchased"
+        class="badge badge-primary mr-2"
+        (click)="updatePurchased(true)"
+      >
+        Mark Purchased
+      </button>
+  
+      <button class="badge badge-danger mr-2" (click)="deleteListing()">
+        Delete
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateListing()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentListing.id">
+      <br />
+      <p>Cannot access this Listing...</p>
+    </div>
+  </ng-template>
+  

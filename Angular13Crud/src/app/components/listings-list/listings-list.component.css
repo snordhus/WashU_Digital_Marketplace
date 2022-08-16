@@ -1,0 +1,12 @@
+.thumbnail{
+    height:7rem;
+}
+.purchasedListing{
+    background-color: rgb(255, 180, 180);
+}
+a{
+    cursor: pointer;
+}
+.listingInfo{
+    margin-left: 2rem;
+}

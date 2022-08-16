@@ -1,0 +1,71 @@
+
+<div *ngIf="curUser != 'none'; else loggedOut">
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            required
+            [(ngModel)]="listing.title"
+            name="title"
+          />
+        </div>
+        <div class="form-group">
+          <label for="price">Thumbnail URL</label>
+          <input
+            class="form-control"
+            id="image"
+            required
+            [(ngModel)]="listing.image"
+            name="image"
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input
+            class="form-control"
+            id="description"
+            required
+            [(ngModel)]="listing.description"
+            name="description"
+          />
+        </div>
+        <div class="form-group">
+          <label for="price">Price ($)</label>
+          <input
+            class="form-control"
+            id="number"
+            required
+            [(ngModel)]="listing.price"
+            name="price"
+          />
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select 
+                class="form-control" 
+                id="category"
+                required
+                [(ngModel)]="listing.category"
+                name="category"
+                >
+              <option>Tech</option>
+              <option>Sports</option>
+              <option>Books</option>
+              <option>Other</option>
+            </select>
+        </div>
+        <button (click)="saveListing()" class="btn btn-success">Submit</button>
+      </div>
+      <div *ngIf="submitted">
+        <h4>Listing was submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newListing()">Create Another Listing</button>
+      </div>
+    </div>
+</div>
+<ng-template #loggedOut>
+  <h4>Yout must be logged-in to create listings</h4>
+</ng-template>

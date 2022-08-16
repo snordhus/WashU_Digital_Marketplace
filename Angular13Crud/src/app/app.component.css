@@ -1,0 +1,13 @@
+#topbar{
+    padding-left: 4rem;
+}
+@media (max-width: 640px) 
+{
+    #siteText
+    {
+        display: none;
+    }
+}
+.container{
+    margin-bottom: 2rem;
+}

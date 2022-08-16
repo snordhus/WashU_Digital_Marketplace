@@ -1,0 +1,33 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            required
+            [(ngModel)]="user.username"
+            name="usernmae"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            class="form-control"
+            type="password"
+            id="password"
+            required
+            [(ngModel)]="user.password"
+            name="password"
+          />
+        </div>
+        <button (click)="loginUser()" class="btn btn-success">Submit</button>
+      </div>
+      <div *ngIf="submitted">
+        <h4>Successfully Logged-in User</h4>
+        <a routerLink="../listings" class="nav-link"><button class="btn btn-primary">View Listings</button></a>
+      </div>
+    </div>
+  </div>

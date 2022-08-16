@@ -1,0 +1,100 @@
+<div class="list row">
+    <div class="col-md-8">
+      <h4 *ngIf="curUser != 'none'; else loggedOut">Your username is: {{curUser}}</h4>
+      <ng-template #loggedOut>
+        <h4>Please Login/Register</h4>
+      </ng-template>
+      <div class="input-group mb-3">
+        <input
+          class="form-control"
+          [(ngModel)]="title"
+          type="text"
+          placeholder="Search by listing title"
+        />
+        <div class="input-group-append">
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            (click)="searchTitle()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <strong>Filter: &nbsp;</strong>
+        <a 
+        class="nav-link col"
+        (click)="filter('All')"
+        >
+        View All</a>
+        <a 
+        class="nav-link col"
+        (click)="filter('Tech')"
+        >
+        Tech</a>
+        <a 
+        class="nav-link col"
+        (click)="filter('Sports')"
+        >
+        Sports</a>
+        <a 
+        class="nav-link col"
+        (click)="filter('Books')"
+        >
+        Books</a>
+        <a 
+        class="nav-link col"
+        (click)="filter('Other')"
+        >
+        Other</a>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <br>
+      <ul class="list-group">
+          <!-- iterate thru listings with *ngFor, add (click) listener, and display information -->
+        <ng-container *ngFor="let listing of listings; let i = index">
+        <li
+          class="list-group-item"
+          
+          [class.active]="i == currentIndex"
+          (click)="setActiveListing(listing, i)"
+          *ngIf="catFilter == listing.category || catFilter == 'All'"
+          [ngClass]="{'purchasedListing' : listing.purchased}"
+        >
+        
+        <div class="row">
+          <div class='col-6'>
+            <strong *ngIf="listing.purchased">SOLD<br></strong>
+            <h5>{{ listing.title }}</h5>
+            <div class="listingInfo">
+              <h6>${{ listing.price }}</h6>
+              <strong>Seller:</strong> {{ listing.seller }}<br>
+              <strong>Category:&nbsp;</strong>{{ listing.category }}
+            </div>
+          </div>
+          <div >
+            
+          </div>
+          <div class='col-6'><img class="thumbnail" src="{{ listing.image }}" /></div>
+        </div>
+          <!-- {{ listing.description }} -->
+        </li>
+      </ng-container>
+      </ul>
+      <button
+      *ngIf="curUser=='admin'" 
+      (click)="removeAllListings()"
+      class="m-3 btn btn-sm btn-danger" >
+        Remove All
+      </button>
+    </div>
+    <!-- RIGHT SIDE MODULE -->
+    <div class="col-md-6">
+      <app-listing-details
+        [currentListing]="currentListing"  
+        [viewMode]="true"
+      ></app-listing-details>
+    </div>
+  </div>

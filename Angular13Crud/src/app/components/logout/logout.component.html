@@ -1,0 +1,8 @@
+<div *ngIf="curUser != 'none'; else loggedOut">  
+    <h4 >Are you sure you want to logout?</h4>
+    <button (click)="logout()" class="btn btn-danger">Log-Out</button>
+ </div>   
+
+  <ng-template #loggedOut>
+    <h4>You are not logged-in. Please Login/Register</h4>
+  </ng-template>
