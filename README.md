@@ -1,5 +1,5 @@
 # WashU Digital Marketplace
-Sam Nordhus - snordhus
+Sam Nordhus - snordhus\
 
 Asynchronous marketplace website where WashU students can sell items to other students
 ## Usage Instructions / Other Information:
