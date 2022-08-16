@@ -1,5 +1,5 @@
 # WashU Digital Marketplace
-Sam Nordhus - 485897 - snordhus
+Sam Nordhus - snordhus
 
 ## Usage Instructions / Other Information:
 * Stack:
