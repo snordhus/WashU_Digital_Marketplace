@@ -1,4 +1,4 @@
-# CSE330 Final- WashU Digital Marketplace
+WashU Digital Marketplace
 Sam Nordhus - 485897 - snordhus
 
 ## Usage Instructions / Other Information:
