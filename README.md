@@ -17,6 +17,7 @@ CRUD Application: Create, Read, Update, Delete database entries
     * node server.js
 * On another terminal, cd to /Angular13Crud and run:
     * ng serve --port 8081  
+* Site should be accessible on http://localhost:8081/
 * Make sure mySQL database is created
 
 # RUBRIC:
