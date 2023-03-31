@@ -25,6 +25,7 @@ CRUD Application: Create, Read, Update, Delete database entries
 * Angular frontend
 * Express (node.js) backend
 * MySQL Database
+* database ORM technology: 'sequelize'
 ### Functionality
 * Users can create an item for sale listing that will appear for all users
 * Users can press a button to email the seller with an offer/bid for the selected listing, and the listing will be marked as purchased
@@ -42,7 +43,6 @@ CRUD Application: Create, Read, Update, Delete database entries
     * Added 'image' column to lisings table
 ### Other Details
 * All pages pass the html validator
-* used database ORM technology: 'sequelize'
 * Site is mobile friendly:
     * CSS Media Queries
     * Bootstrap
