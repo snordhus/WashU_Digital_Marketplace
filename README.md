@@ -11,7 +11,7 @@ CRUD Application: Create, Read, Update, Delete database entries
     * npm install express sequelize mysql2 cors --save 
 * Defaultly, Express server is on localhost port 8080, Angular is on 8081, and mySQL is on port 3306
 * To configure default database properties, go to ExpressServer/app/config/db.config.js
-    * You will need to create a mySQL database (testdb) with the specified user (snordhus) listening on the specified port (3306)
+    * You will need to create a mySQL database (i.e. 'testdb') with the specified user (i.e. 'snordhus') listening on the specified port (3306)
 ### To Launch App Locally:
 * On one terminal, cd to /ExpressServer and run:
     * node server.js
